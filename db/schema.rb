@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2021_12_24_011552) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bank_loans", force: :cascade do |t|
-    t.integer "client_id", null: false
-    t.integer "bank_id", null: false
-    t.string "type"
+    t.bigint "client_id"
+    t.bigint "bank_id"
+    t.string "loan_type"
     t.float "requested_amount"
     t.float "payment_amount"
     t.float "interest_amount"
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_12_24_011552) do
   end
 
   create_table "loan_installments", force: :cascade do |t|
-    t.integer "bank_loan_id", null: false
+    t.bigint "bank_loan_id"
     t.datetime "due_date"
     t.float "value"
     t.boolean "status"
