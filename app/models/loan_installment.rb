@@ -1,3 +1,3 @@
 class LoanInstallment < ApplicationRecord
-  belongs_to :bank_loan_id
+  belongs_to :bank_loan
 end

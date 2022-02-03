@@ -1,8 +1,8 @@
 class SimulateLoanController < ActionController::Base
   def index
     @service = SimulateLoan::Index.call(
-      api_params[:loan_amount],
-      api_params[:amount_of_installment]
+      api_params[:requested_amount],
+      api_params[:total_installment]
     )
 
     if @service.success?

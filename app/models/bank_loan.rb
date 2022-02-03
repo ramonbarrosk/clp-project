@@ -1,4 +1,6 @@
 class BankLoan < ApplicationRecord
-  belongs_to :client_id
-  belongs_to :bank_id
+  has_many :loan_installment
+
+  belongs_to :bank
+  belongs_to :client
 end
