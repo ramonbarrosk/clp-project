@@ -17,7 +17,7 @@ class Loan::Index
                                     jsonb_agg(
                                       jsonb_build_object(
                                         'bank_loan_id', loan_installments.bank_loan_id,
-                                        'value',loan_installments.value,
+                                        'value', ROUND(loan_installments.value :: DECIMAL, 2),
                                         'due_date', TO_CHAR(loan_installments.due_date :: DATE, 'Mon dd, yyyy'),
                                         'status_installment',loan_installments.status
                                       )
@@ -29,6 +29,7 @@ class Loan::Index
                                   'total_installments',
                                   'loan_type',
                                   'bank_id')
+                           
 
     loans_client.map do |loan|
       {
