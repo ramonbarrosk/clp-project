@@ -1,24 +1,10 @@
-# README
+# Oxebank - Sistema de empréstimo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sitema criado para nota na disciplina de Conceito e Linguagem de Programação no terceiro período do curso de Ciência da Computação, sistema criado utilizando a linguagem Ruby, com o framework Ruby On Rails.
 
-Things you may want to cover:
+## Serviços
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Simulação do empréstimo
+2. Criação do empréstimo
+3. Visualização dos empréstimos 
+4. Pagamento das parcelas 

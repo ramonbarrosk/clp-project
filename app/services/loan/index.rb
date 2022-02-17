@@ -14,7 +14,7 @@ class Loan::Index
                                     bank_loans.status AS status_bank_loan,
                                     requested_amount,
                                     payment_amount,
-                                    interest_amount,
+                                    ROUND(interest_amount :: DECIMAL, 2) AS interest_amount,
                                     total_installments,
                                     jsonb_agg(
                                       jsonb_build_object(
