@@ -11,7 +11,8 @@ class Loan::Create
   end
 
   def call
-    return 'Usuário excedeu o limite de empréstimo' if BankLoan.find_by(client_id: @client_id)
+    return 'Você não possui esse limite de empréstimo! (Até R$ 2000,00)' if @requested_amount > 2000
+    return 'Você ainda possui empréstimo pendente!' if BankLoan.find_by(client_id: @client_id, status: 'EM ANDAMENTO')
 
     interest_value = @requested_amount * @interest_per_month * @total_installments
     total_payable = @requested_amount + interest_value

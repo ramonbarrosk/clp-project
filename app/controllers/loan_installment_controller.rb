@@ -1,9 +1,9 @@
 class LoanInstallmentController < ActionController::Base
   skip_before_action :verify_authenticity_token
 
-  def create
-    @service = ::LoanInstallment::Payment.call(
-      api_params[:bank_loan_id],
+  def update
+    @service = ::LoanInstallment::Update.call(
+      set_bank_loan,
       api_params[:value]
     )
 
@@ -15,6 +15,10 @@ class LoanInstallmentController < ActionController::Base
   end
 
   private
+
+  def set_bank_loan
+    BankLoan.find_by(id: api_params[:id], status: 'EM ANDAMENTO')
+  end
 
   def api_params
     params.to_unsafe_h || {}

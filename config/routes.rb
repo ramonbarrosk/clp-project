@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   resources :simulate_loan, only: [:index]
   resources :loan, only: [:index, :create]
-  resources :loan_installment, only: [:create]
+  resources :loan_installment, only: [:update]
 end
